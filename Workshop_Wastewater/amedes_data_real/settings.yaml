@@ -1,0 +1,11 @@
+locations:
+  output-dir: output
+  input-dir: /local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/data/raw_reads/AMEDES_samples/merged_samples
+  reference-fasta: sample_data/NC_045512.2.fasta
+  amplicons-bed: sample_data/nCoV-2019_NCref.bed
+  mutations-bed: sample_data/220209_mutation_bed_file_t07.bed
+  mutation-sheet: sample_data/mutation_sheet_220209_t07.csv
+  kraken-db-dir: /local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/kraken_db_big
+  krona-db-dir: /local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/krona_db
+  sigmut-db-dir: /local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/sigmut_db
+  vep-db-dir: /local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/vep_db

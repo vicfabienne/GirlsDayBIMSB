@@ -1,0 +1,119 @@
+{
+    "execution": {
+        "cluster": {
+            "args": "",
+            "contact-email": "none",
+            "missing-file-timeout": 120,
+            "queue": "all",
+            "stack": "128M"
+        },
+        "jobs": 6,
+        "nice": 19,
+        "rules": {
+            "__default__": {
+                "memory": "4G",
+                "threads": 1
+            }
+        },
+        "submit-to-cluster": false,
+        "target": null
+    },
+    "locations": {
+        "amplicons-bed": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/sample_data/nCoV-2019_NCref.bed",
+        "datarootdir": "/gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4/share",
+        "exec_prefix": "/gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4",
+        "input-dir": "/local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/data/raw_reads/AMEDES_samples/merged_samples",
+        "kraken-db-dir": "/local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/kraken_db_big",
+        "krona-db-dir": "/local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/krona_db",
+        "libexecdir": "/gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4/libexec",
+        "mutation-sheet": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/sample_data/mutation_sheet_220209_t07.csv",
+        "mutations-bed": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/sample_data/220209_mutation_bed_file_t07.bed",
+        "output-dir": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/output",
+        "pkgdatadir": "/gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4/share/pigx_sars-cov2-ww",
+        "pkglibexecdir": "/gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4/libexec/pigx_sars-cov2-ww",
+        "prefix": "/gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4",
+        "reads-dir": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/reads",
+        "reference-fasta": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/sample_data/NC_045512.2.fasta",
+        "sample-sheet": "/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/sample_sheet.csv",
+        "sigmut-db-dir": "/local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/sigmut_db",
+        "vep-db-dir": "/local/Projects/AAkalin_pathogenomics/pigx_sars-cov-2_project/databases/vep_db"
+    },
+    "tools": {
+        "Rscript": {
+            "args": "--vanilla --no-environ",
+            "executable": "/gnu/store/kir6f3wh02diqigiylygrykwirvj6ilj-r-minimal-4.1.2/bin/Rscript"
+        },
+        "bbduk": {
+            "args": "",
+            "executable": "/gnu/store/qja3gav242v2rb56nq5k5bcyfn1b8r50-bbmap-38.90/bin/bbduk.sh"
+        },
+        "bedtools": {
+            "args": "",
+            "executable": "/gnu/store/vfm42d39p698y63pdw6h4pdi4wraah35-bedtools-2.30.0/bin/bedtools"
+        },
+        "bwa": {
+            "args": "",
+            "executable": "/gnu/store/db25njzb9ry1pfahlyb4jisg7l9dylbl-bwa-0.7.17/bin/bwa"
+        },
+        "fastp": {
+            "args": "",
+            "executable": "/gnu/store/57rv4nz7fzi3dw4khzl30338l9pi5zvc-fastp-0.20.1/bin/fastp"
+        },
+        "fastqc": {
+            "args": "",
+            "executable": "/gnu/store/w2r27x35smcv0jka3lah7825c735n51v-fastqc-0.11.5/bin/fastqc"
+        },
+        "gunzip": {
+            "args": "--keep",
+            "executable": "/gnu/store/iixwcv3k49ks1rf34pjgfzmzyhhgwng3-gzip-1.10/bin/gunzip"
+        },
+        "gzip": {
+            "args": "",
+            "executable": "/gnu/store/iixwcv3k49ks1rf34pjgfzmzyhhgwng3-gzip-1.10/bin/gzip"
+        },
+        "import_krona": {
+            "args": "",
+            "executable": "/gnu/store/yzbdij0c8j8192mpqx5f6cfc13rawild-krona-tools-2.8/bin/ktImportKrona"
+        },
+        "import_taxonomy": {
+            "args": "",
+            "executable": "/gnu/store/yzbdij0c8j8192mpqx5f6cfc13rawild-krona-tools-2.8/bin/ktImportTaxonomy"
+        },
+        "ivar": {
+            "args": "",
+            "executable": "/gnu/store/w17jpv5nbpz143ys20yd6afw9dhhdf3p-ivar-1.3.1/bin/ivar"
+        },
+        "kraken2": {
+            "args": "",
+            "executable": "/gnu/store/224ypkg0ndfmpljvn4spx0qwfmn1w3vx-kraken2-2.1.1/bin/kraken2"
+        },
+        "lofreq": {
+            "args": "",
+            "executable": "/gnu/store/hwfn99whahvlphi5k5csgmzxbbrsv227-lofreq-2.1.5/bin/lofreq"
+        },
+        "multiqc": {
+            "args": "",
+            "executable": "/gnu/store/rj0mh4cjm1syl3kcd1759p4m10893yay-multiqc-1.10.1/bin/multiqc"
+        },
+        "prinseq": {
+            "args": "",
+            "executable": "/gnu/store/i996ccqs55spk73m2wai4mz8x6c8q462-prinseq-0.20.4/bin/prinseq-lite.pl"
+        },
+        "python": {
+            "args": "",
+            "executable": "/gnu/store/mp42nw4pbj6vw4fx5szvh44z2gkmjg89-python-wrapper-3.9.9/bin/python"
+        },
+        "samtools": {
+            "args": "",
+            "executable": "/gnu/store/wpmyxbda4g0mxdlkfzh5r8qc65ysyql3-samtools-1.14/bin/samtools"
+        },
+        "vep": {
+            "args": "",
+            "executable": "/gnu/store/yg2a2qlj22wgk0n0r3m6xlmc1vjkdi8b-ensembl-vep-103.1/bin/vep"
+        }
+    },
+    "trimming": {
+        "cut-off": 0.8,
+        "read-length": 150
+    }
+}

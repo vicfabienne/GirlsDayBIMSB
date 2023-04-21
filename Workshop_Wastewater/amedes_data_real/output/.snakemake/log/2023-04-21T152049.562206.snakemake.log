@@ -1,0 +1,5 @@
+Building DAG of jobs...
+MissingInputException in line 223 of /gnu/store/4jckm2x3a8sbhq0zswakw6vmjsgj1nnv-pigx-sars-cov2-ww-0.0.4/libexec/pigx_sars-cov2-ww/snakefile.py:
+Missing input files for rule fastp:
+/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/reads/WW-T7-004_R1.fastq.gz
+/home/vschuma/GirlsDayBIMSB/Workshop_Wastewater/amedes_data_real/reads/WW-T7-004_R2.fastq.gz
