@@ -1,0 +1,107 @@
+---
+title: An R Markdown document converted from "Workshop_Drosophila_DNAmotifs/GirlsDay_Aufgabe2_Plotting.ipynb"
+output: html_document
+---
+
+```{r}
+#install and load packages
+# install.packages("plotly")
+# install.packages("ggplot2")
+library(plotly)
+library(htmltools)
+```
+
+## Aufgabe 2
+
+Fuer unseren Drosophila embryo haben wir drei verschiedene Datensätze
+(1) Die Namen der Gene, die wir uns anschauen wollen.  
+(2) Die Expression dieser Gene. Das heisst für jede Zelle wissen wir wie aktiv dieses Gen in der Zelle ist
+(3) die Koordinaten für jede Zelle, damit wir diese dann visualisieren können.
+```{r}
+# Lade die Daten
+genes <- rownames(read.table("genes.txt",row.names = 1))
+length(genes)
+```
+
+```{r}
+GeneExpressions <- read.table("sdge_1297_cells_3039_locations.txt", row.names=genes)
+geometry <- read.table('geometry.txt',nrows = 3039, skip = 1,col.names = c("x","y","z"))
+```
+
+Versuche herauszufinden:
+(1) Wie viele Gene haben wir? (Tipp: mit der Funktion length())
+(2) Wie heissen die Gene?  
+(3) Wie viele Zellen haben wir? (Tipp: dim() gibt uns die Dimensionen einer Matrix)
+
+```{r}
+#1 (Tipp: length())
+
+#2 
+
+#3 (Tip: dim())
+
+```
+
+So sieht unser virtueller Embryo aus:
+
+```{r}
+#die farben koennen wir uns aussuchen:
+farben <- c("#1289d7", "#00008b", "#ff0000", "#ffa500")
+ueberschrift <- "was koennte hier stehen?"
+
+# So erstellen wir eine Abbildung:
+fig <- plot_ly( x = geometry$x, y=geometry$z, type='scatter', mode='markers', colors=farben) 
+fig <- fig %>% layout(
+    title = ueberschrift,
+    xaxis = list(range=c(-220,200),scaleanchor = "y", scaleratio = 1),
+    yaxis = list(range=c(-80,80)))
+fig
+```
+Kannst du den Titel der Abbildung verändern?
+```{r}
+#die farben koennen wir uns aussuchen:
+farben <- c("#1289d7", "#00008b", "#ff0000", "#ffa500")
+ueberschrift <- "was koennte hier stehen?"
+
+# So erstellen wir eine Abbildung:
+fig <- plot_ly( x = geometry$x, y=geometry$z, type='scatter', mode='markers', colors=farben)
+fig <- fig %>% layout(
+    title = ueberschrift,
+    xaxis = list(range=c(-220,200),scaleanchor = "y", scaleratio = 1),
+    yaxis = list(range=c(-80,80)))
+fig
+```
+
+```{r}
+gene <- " hier musst du ein Gen reinschreiben "
+fig <- fig %>% add_trace(name= gene, color = as.numeric(GeneExpressions[gene,]))
+fig
+```
+
+```{r}
+gene <- "sna"
+fig <- plot_ly( x = geometry$x, y=geometry$z, type='scatter', mode='markers', colors=farben) 
+fig <- fig %>% layout(
+    title = ueberschrift,
+    xaxis = list(range=c(-220,200),scaleanchor = "y", scaleratio = 1),
+    yaxis = list(range=c(-80,80))) %>% 
+
+add_trace(name= gene, color = as.numeric(GeneExpressions[gene,]))
+fig
+```
+
+# Todo - mehr interessante Plots mit GeneExpressions daten?
+
+Volcano Plot: https://biocorecrg.github.io/CRG_RIntroduction/volcano-plots.html
+other plots maybe from here: https://www.youtube.com/watch?v=RukuTtiY4Sg
+
+```{r}
+GeneExp = t(GeneExpressions)
+class(GeneExp) 
+head(GeneExp[,"aay"])
+```
+
+```{r}
+hist(GeneExp[,"aay"])
+```
+

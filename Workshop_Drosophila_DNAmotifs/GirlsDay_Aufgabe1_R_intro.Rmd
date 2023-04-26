@@ -1,0 +1,178 @@
+---
+title: An R Markdown document converted from "Workshop_Drosophila_DNAmotifs/GirlsDay_Aufgabe1_R_intro.ipynb"
+output: html_document
+---
+
+## Girls Day - Donnerstag 27 April 2023
+
+Hi Girls!
+
+Willkommen bei dem Berlin Institute for Medical Systems Biology (BIMSB). Wir (Vic-Fabienne und Alex) arbeiten bei BIMSB als Bioinformatiker.
+
+Bioinformatik ist eine Kombination von Biologie und Informatik (oder auch Computerwissenschaft genannt). Wir benutzen den Computer, um biologische Fragen zu lösen wie:  
+* Wie werden normale Zellen zu Krebszellen?
+* Wie kann aus einer Ei- und einer Samenzelle ein Mensch entstehen? 
+* Warum werden manche Patienten durch ein Medikament geheilt, während andere krank bleiben? 
+
+Heute zeigen wir euch einige Aufgaben, mit denen sich ein Bioinformatiker beschäftigen könnte.
+
+### 1. Einführung ins Programmieren
+
+In der Bioinformatik verwenden wir einen Computer, um einige unserer Fragen zu lösen. Dazu müssen wir dem Computer mitteilen, was er tun soll. Eine Möglichkeit, mit dem Computer zu kommunizieren, besteht darin, eine Maus zu benutzen und auf die verschiedenen Symbole auf dem Bildschirm zu klicken. Wenn wir z. B. auf das Brief- oder Briefmarkenlogo klicken, teilen wir dem Computer mit: "Öffne eine E-mail". Eine andere Möglichkeit, mit dem Computer zu kommunizieren, besteht darin, Befehle zu schreiben, die der Computer ausführen soll. Es gibt verschiedene Sprachen, die wir verwenden können, um mit dem Computer zu "sprechen" oder die Computer zu "befehlen". Die Sprachen, die wir heute verwenden werden, heißen "Bash" und "R". Die Kommunikation mit einem Computer in einer Computersprache heißt "programmieren".
+    
+#### 1.1.
+
+Als Erstes werden wir dem Computer einen Befehl geben, um eine Nachricht zu zeigen. Das machen wir mit dem Befehl `print("")`. Ihr könnt ein Wort oder einen Satz zwischen die Anführungszeichen schreiben.
+
+Übung A: Lass den Computer die Nachricht "Hello World" zeigen.
+    
+
+```{r}
+print("Hello World")
+```
+Übung B: Print auch einen anderen Satz.
+```{r}
+print("heute ist girls day")
+```
+#### 1.2
+
+Wir können auch Wörter oder Sätze in eine "Variable" laden. Dazu verwenden wir das Zeichen `=`. Unten seht ihr ein Beispiel, in dem wir das Wort `"Vic"` in die Variable `Name` geladen haben.
+```{r}
+Name <- "Vic"
+print(Name)
+```
+Jetzt können wir den Befehl `print` verwenden, um die Variable `Name` anzuzeigen.
+
+Übung A: Lass den Computer die Variable `Name` anzeigen. (Anmerkung: Da `Name` eine Variable ist, braucht ihr die Anführungszeichen nicht).
+
+```{r}
+Dein_Name <- "Lilly"
+Dein_Name
+```
+
+```{r}
+# Erstelle eine Variable mit mehreren Namen
+namen <- c("Vic", "Alex")
+
+#Koennen wir alle Namen anzeigen ?
+namen
+```
+Das ist jetzt noch sehr einfach und noch nicht so sehr informativ. Wir können die Werte hinter Variablen und Ausgabe Befehle auch zu ganzen Sätzen miteinander kombinieren. Dafür verwenden wir entweder sogenannte Verkettungsfunktionen wie zB `paste` bzw. `paste0`
+```{r}
+Satzanfang <-  "Hallo! Mein Name ist"
+SatzMitName <-  paste(Satzanfang,name2)
+print(SatzMitName)
+```
+Übung B: Kannst du dem Satz jetzt noch selber ein Satzzeichen am Ende des Satzes hinzufügen? Was macht es für einen Unterschied, ob du `paste` oder `paste0` nutzt? (Tipp: Ein Leerzeichen in computersprache wird als kannst du so dargestellen: " ")
+```{r}
+GanzerSatz1 <-  paste(Satzanfang,name2,".")
+GanzerSatz2 <-  paste0(Satzanfang, " ", name2,".")
+print(GanzerSatz1)
+print(GanzerSatz2)
+```
+Wie könnte es aussehen, wenn wir beide Namen in einen Satz einfügen wollen?
+Dazu können wir zB die Datenstruktur "Lexikon" verwenden. Kannst du dir vorstellen, wie das als Code aussehen und funktionieren könnte?
+```{r}
+name <- {} # das ist ein leeres dictionary
+for (i in namen) {
+  name[i] <- i
+}
+
+print(paste("Hallo wir sind",name[1],"und",name[2],"!"))
+```
+#### 1.3
+
+In 1.1 hast du bereits die Funktion `print` gesehen. R hat jedoch Tausende von anderen Funktionen. Eine der Funktionen, die wir heute verwenden werden, ist `substr`. Wir können diese Funktion benutzen, um einen Teil einer Variablen zu drucken. Um das zu tun, schreiben wir `substr(Variable, Zahl, Zahl)`. Um herauszufinden wie eine Funktion funktioniert können wir auch die Funktion `help()` nutzen.  
+
+Übung A: Lade die DNA-Sequenz '"ACGTCGTAGCTGATGCATGCTAGTGTGTGCTAGTCGACAGCTAGTCAGA"' in eine Variable `DNA` und print die Variable. 
+
+```{r}
+DNA <-  "ACGTCGTAGCTGATGCATGCTAGTGTGTGCTAGTCGACAGCTAGTCAGA"
+print(DNA)
+```
+Übung B: Benutze die Funktion `substr` mit der Variablen `DNA` und versuche herauszufinden, was die Zahlen in der Funktion bedeuten. (Tipp: Ersetze das Wort Zahl durch eine ganze Zahl oder benutzt `help(substr)`)
+
+```{r}
+help(substr)
+```
+Übung B: Verwende die Funktion `substr`, um die ersten 6 Buchstaben der Variablen `DNA` zu printen.
+
+```{r}
+substr(DNA,1,6)
+```
+#### 1.4
+Nun wollen wir wissen, ob die DNA-Sequenz, die wir in die Variable `DNA` geladen haben, unser Bindungsmotiv `GCTAGT` enthält. Dazu müssen wir zunächst den Computer fragen, ob die 6 ausgewählten Buchstaben mit dem Bindungsmotiv übereinstimmen. Wir können zwei Gleichheitszeichen `==` verwenden, um zu fragen, ob eine Variable mit einem ausgewählten Wort identisch ist. Unten haben wir gefragt, ob die Variable `Name` gleich `Vic-Fabienne` ist und ob sie gleich `Alex` ist. 
+
+```{r}
+Name == "Vic-Fabienne"
+```
+```{r}
+Name == "Alex"
+```
+Übung: Finde heraus, ob die ersten 6 Buchstaben der Variablen `DNA` mit unserem Bindungsmotiv `GCTAGT` übereinstimmen. Prüft auch die Buchstaben 10-15 und 19-24.
+```{r}
+substr(DNA,1,6) == "GCTAGT"
+```
+```{r}
+substr(DNA,10,15) == "GCTAGT"
+```
+
+```{r}
+substr(DNA,19,24) == "GCTAGT"
+```
+#### 1.5
+Es wäre ziemlich zeitraubend, wenn wir alle 6 Buchstaben in der DNA-Sequenz von Hand prüfen müssten, ob sie mit dem Bindungsmotiv übereinstimmen. Deshalb werden wir die Leistung des Computers nutzen, um eine 'Loop' (eine Schleife) über alle 6 Buchstaben in der DNA-Sequenz zu erstellen. Unten haben wir eine Beispielloop geschrieben. 
+
+Übung A: Führe den Code aus und versuche zu verstehen, was der Code ausgibt. (Tipp: nutzt die `help()` function für unbekannte Funktionen)
+
+```{r}
+for (i in 1:(nchar(DNA))){
+    sechs_buchstaben <- substr(DNA, i, i+5)
+    print(sechs_buchstaben)
+}
+```
+Übung B: Verwende den Code, den ihr in 1.2 gemacht habt, um zu printen, ob die Variable `sechs_buchstaben` gleich unserem Bindungsmotiv `GCTAGT` ist.
+```{r}
+for (i in 1:(nchar(DNA))){
+    sechs_buchstaben <- substr(DNA, i, i+5)
+    print(sechs_buchstaben == "GCTAGT")
+}
+```
+### 1.6 
+Eigentlich wollen wir nicht, dass der Computer das Ergebnis ausdruckt. Wir wollen, dass er jedes Mal zählt, wenn 6 Buchstaben gleich dem Bindemotiv sind. Um dies zu erreichen, fügen wir `Anzahl = 0` vor unserer Loop ein. Und am Ende unserer Loop fügen wir `if(sechs_buchstaben == "ACGTCG"){Anzahl = Anzahl + 1}.` 
+
+Übung A: Füge die obigen Codezeilen zu unserer Loop hinzu und run the Code.
+
+```{r}
+Anzahl<- 0
+for (i in 1:(nchar(DNA))){
+    sechs_buchstaben <- substr(DNA, i, i+5)
+    if(sechs_buchstaben == "GCTAGT"){Anzahl = Anzahl + 1}
+    #print(sechs_buchstaben<- "GCTAGT")
+}
+```
+Übung B: print Variable `Anzahl`
+```{r}
+Anzahl
+```
+Übung C: Könnt ihr uns erklären, was in unserer Loop passiert ist, indem ihr diese Codezeilen hinzugefügt habt?
+    
+### 1.7 
+Zum Schluss werden wir unseren Code auf die DNA-Sequenz anwenden, die uns interessiert. Da diese DNA-Sequenz über 3000 Buchstaben enthält, wäre es zu viel, sie abzutippen. Stattdessen haben wir die DNA-Sequenz in eine Datei namens `DNA_sequenz.txt` eingefügt. Im Folgenden haben wir den Code geschrieben, um die DNA-Sequenz in dieser Datei in eine Variable namens `all_DNA` zu laden.
+```{r}
+all_DNA <- readChar("DNA_sequenz.txt", nchars=1e6)
+```
+Übung A: Verwende die Funktion `nchar()`, um die Anzahl der Buchstaben in der Variablen `all_DNA` zu ermitteln.
+```{r}
+nchar(all_DNA)
+```
+Übung B: Verwende unsere Loop, um alle Vorkommen des Bindungsmotivs in der DNA-Sequenz zu berechnen.
+```{r}
+Anzahl<- 0
+for (i in 1:(nchar(all_DNA))){
+    sechs_buchstaben <- substr(all_DNA, i, i+5)
+    if(sechs_buchstaben == "GCTAGT"){Anzahl = Anzahl + 1}
+    #print(sechs_buchstaben="GCTAGT")
+}
+print(Anzahl)
+```
