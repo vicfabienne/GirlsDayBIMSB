@@ -20,10 +20,6 @@ Fuer unseren Drosophila embryo haben wir drei verschiedene Datensätze
 ```{r}
 # Lade die Daten
 genes <- rownames(read.table("genes.txt",row.names = 1))
-length(genes)
-```
-
-```{r}
 GeneExpressions <- read.table("sdge_1297_cells_3039_locations.txt", row.names=genes)
 geometry <- read.table('geometry.txt',nrows = 3039, skip = 1,col.names = c("x","y","z"))
 ```
@@ -38,14 +34,12 @@ Versuche herauszufinden:
 
 #2 
 
-#3 (Tip: dim())
+#3 (Tipp: dim())
 
 ```
-
 So sieht unser virtueller Embryo aus:
-
 ```{r}
-#die farben koennen wir uns aussuchen:
+# die Farben koennen wir uns aussuchen:
 farben <- c("#1289d7", "#00008b", "#ff0000", "#ffa500")
 ueberschrift <- "was koennte hier stehen?"
 
@@ -59,7 +53,7 @@ fig
 ```
 Kannst du den Titel der Abbildung verändern?
 ```{r}
-#die farben koennen wir uns aussuchen:
+# die Farben koennen wir uns aussuchen:
 farben <- c("#1289d7", "#00008b", "#ff0000", "#ffa500")
 ueberschrift <- "was koennte hier stehen?"
 
@@ -73,43 +67,16 @@ fig
 ```
 
 ```{r}
-gene <- "hier musst du ein Gen reinschreiben "
+gene <- " hier musst du ein Gen reinschreiben "
 fig <- fig %>% add_trace(name= gene, color = as.numeric(GeneExpressions[gene,]))
 fig
 ```
-
-```{r}
-gene <- "sna"
-fig <- plot_ly( x = geometry$x, y=geometry$z, type='scatter', mode='markers', colors=farben) 
-fig <- fig %>% layout(
-    title = ueberschrift,
-    xaxis = list(range=c(-220,200),scaleanchor = "y", scaleratio = 1),
-    yaxis = list(range=c(-80,80))) %>% 
-
-add_trace(name= gene, color = as.numeric(GeneExpressions[gene,]))
-fig
-```
 Sehen die Plots so aus, wie auf den Bildern auf den Folien? Und wenn nicht - woran könnte das liegen?
-Ant.: Biologische Variation, Messmethode etc..
---> Für diese Aufgabe eine slide mit FISH bildern einiger interessanter Gene haben
 
 Kannst du selber eine Schleife schreiben, die die Plots für mehrere Gene ausgibt?
 ```{r}
 
 
 ```
-# Todo - mehr interessante Plots mit GeneExpressions daten?
 
-Volcano Plot: https://biocorecrg.github.io/CRG_RIntroduction/volcano-plots.html
-other plots maybe from here: https://www.youtube.com/watch?v=RukuTtiY4Sg
-
-```{r}
-GeneExp = t(GeneExpressions)
-class(GeneExp) 
-head(GeneExp[,"aay"])
-```
-
-```{r}
-hist(GeneExp[,"aay"])
-```
 
