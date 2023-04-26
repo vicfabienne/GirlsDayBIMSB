@@ -28,34 +28,34 @@ Als Erstes werden wir dem Computer einen Befehl geben, um eine Nachricht zu zeig
     
 
 ```{r}
-print("Hello World")
+print("")
 ```
 Übung B: Print auch einen anderen Satz.
 ```{r}
-print("heute ist girls day")
+
 ```
 #### 1.2
 
-Wir können auch Wörter oder Sätze in eine "Variable" laden. Dazu verwenden wir das Zeichen `=`. Unten seht ihr ein Beispiel, in dem wir das Wort `"Vic"` in die Variable `Name` geladen haben.
+Wir können auch Wörter oder Sätze in eine "Variable" laden. Dazu verwenden wir das Zeichen `=`. Unten seht ihr ein Beispiel, in dem wir das Wort `"Banane"` in die Variable `Name` geladen haben.
 ```{r}
-Name <- "Vic"
-print(Name)
+GelbesObst <- "Banane"
+print(GelbesObst)
 ```
 Jetzt können wir den Befehl `print` verwenden, um die Variable `Name` anzuzeigen.
 
 Übung A: Lass den Computer die Variable `Name` anzeigen. (Anmerkung: Da `Name` eine Variable ist, braucht ihr die Anführungszeichen nicht).
 
 ```{r}
-Dein_Name <- "Lilly"
-Dein_Name
+Name <- ???
+???
 ```
 
 ```{r}
 # Erstelle eine Variable mit mehreren Namen
-namen <- c("Vic", "Alex")
+namen <- c()
 
 #Koennen wir alle Namen anzeigen ?
-namen
+???
 ```
 Das ist jetzt noch sehr einfach und noch nicht so sehr informativ. Wir können die Werte hinter Variablen und Ausgabe Befehle auch zu ganzen Sätzen miteinander kombinieren. Dafür verwenden wir entweder sogenannte Verkettungsfunktionen wie zB `paste` bzw. `paste0`
 ```{r}
@@ -65,10 +65,10 @@ print(SatzMitName)
 ```
 Übung B: Kannst du dem Satz jetzt noch selber ein Satzzeichen am Ende des Satzes hinzufügen? Was macht es für einen Unterschied, ob du `paste` oder `paste0` nutzt? (Tipp: Ein Leerzeichen in computersprache wird als kannst du so dargestellen: " ")
 ```{r}
-GanzerSatz1 <-  paste(Satzanfang,name2,".")
-GanzerSatz2 <-  paste0(Satzanfang, " ", name2,".")
-print(GanzerSatz1)
-print(GanzerSatz2)
+GanzerSatz1 <-  ???
+GanzerSatz2 <-  ???
+???
+???
 ```
 Wie könnte es aussehen, wenn wir beide Namen in einen Satz einfügen wollen?
 Tipp: Wenn wir mehrere Elemente in einer Variable haben, dann können wir diese einzeln aufrufen, indem wir die Variable mit einer Position verknüpfen:
@@ -79,7 +79,7 @@ print(rotesObst[2])
 ```
 Versuche jetzt mit Hilfe von `print` und `paste` einen ganzen Satz mit Satzzeichen zu bauen, der die Namen über die Variable aufruft!
 ```{r}
-print(paste("Hallo wir sind",name[1],"und",name[2],"!"))
+???
 ```
 #### 1.3
 
@@ -88,18 +88,18 @@ In 1.1 hast du bereits die Funktion `print` gesehen. R hat jedoch Tausende von a
 Übung A: Lade die DNA-Sequenz '"ACGTCGTAGCTGATGCATGCTAGTGTGTGCTAGTCGACAGCTAGTCAGA"' in eine Variable `DNA` und print die Variable. 
 
 ```{r}
-DNA <-  "ACGTCGTAGCTGATGCATGCTAGTGTGTGCTAGTCGACAGCTAGTCAGA"
-print(DNA)
+???
+???
 ```
 Übung B: Benutze die Funktion `substr` mit der Variablen `DNA` und versuche herauszufinden, was die Zahlen in der Funktion bedeuten. (Tipp: Ersetze das Wort Zahl durch eine ganze Zahl oder benutzt `help(substr)`)
 
 ```{r}
-help(substr)
+???
 ```
 Übung B: Verwende die Funktion `substr`, um die ersten 6 Buchstaben der Variablen `DNA` zu printen.
 
 ```{r}
-substr(DNA,1,6)
+???
 ```
 #### 1.4
 Nun wollen wir wissen, ob die DNA-Sequenz, die wir in die Variable `DNA` geladen haben, unser Bindungsmotiv `GCTAGT` enthält. Dazu müssen wir zunächst den Computer fragen, ob die 6 ausgewählten Buchstaben mit dem Bindungsmotiv übereinstimmen. Wir können zwei Gleichheitszeichen `==` verwenden, um zu fragen, ob eine Variable mit einem ausgewählten Wort identisch ist. Unten haben wir gefragt, ob die Variable `Name` gleich `Vic-Fabienne` ist und ob sie gleich `Alex` ist. 
@@ -112,14 +112,14 @@ Name == "Alex"
 ```
 Übung: Finde heraus, ob die ersten 6 Buchstaben der Variablen `DNA` mit unserem Bindungsmotiv `GCTAGT` übereinstimmen. Prüft auch die Buchstaben 10-15 und 19-24.
 ```{r}
-substr(DNA,1,6) == "GCTAGT"
+???
 ```
 ```{r}
-substr(DNA,10,15) == "GCTAGT"
+???
 ```
 
 ```{r}
-substr(DNA,19,24) == "GCTAGT"
+???
 ```
 #### 1.5
 Es wäre ziemlich zeitraubend, wenn wir alle 6 Buchstaben in der DNA-Sequenz von Hand prüfen müssten, ob sie mit dem Bindungsmotiv übereinstimmen. Deshalb werden wir die Leistung des Computers nutzen, um eine 'Loop' (eine Schleife) über alle 6 Buchstaben in der DNA-Sequenz zu erstellen. Unten haben wir eine Beispielloop geschrieben. 
@@ -134,27 +134,23 @@ for (i in 1:(nchar(DNA))){
 ```
 Übung B: Verwende den Code, den ihr in 1.2 gemacht habt, um zu printen, ob die Variable `sechs_buchstaben` gleich unserem Bindungsmotiv `GCTAGT` ist.
 ```{r}
-for (i in 1:(nchar(DNA))){
-    sechs_buchstaben <- substr(DNA, i, i+5)
-    print(sechs_buchstaben == "GCTAGT")
-}
+???
 ```
 ### 1.6 
 Eigentlich wollen wir nicht, dass der Computer das Ergebnis ausdruckt. Wir wollen, dass er jedes Mal zählt, wenn 6 Buchstaben gleich dem Bindemotiv sind. Um dies zu erreichen, fügen wir `Anzahl = 0` vor unserer Loop ein. Und am Ende unserer Loop fügen wir `if(sechs_buchstaben == "ACGTCG"){Anzahl = Anzahl + 1}.` 
 
-Übung A: Füge die obigen Codezeilen zu unserer Loop hinzu und run the Code.
+Übung A: Füge die obigen Codezeilen zu unserer Loop hinzu und lasse den Code laufen.
 
 ```{r}
 Anzahl<- 0
 for (i in 1:(nchar(DNA))){
     sechs_buchstaben <- substr(DNA, i, i+5)
-    if(sechs_buchstaben == "GCTAGT"){Anzahl = Anzahl + 1}
-    #print(sechs_buchstaben<- "GCTAGT")
+    ???
 }
 ```
 Übung B: print Variable `Anzahl`
 ```{r}
-Anzahl
+???
 ```
 Übung C: Könnt ihr uns erklären, was in unserer Loop passiert ist, indem ihr diese Codezeilen hinzugefügt habt?
     
@@ -165,15 +161,9 @@ all_DNA <- readChar("DNA_sequenz.txt", nchars=1e6)
 ```
 Übung A: Verwende die Funktion `nchar()`, um die Anzahl der Buchstaben in der Variablen `all_DNA` zu ermitteln.
 ```{r}
-nchar(all_DNA)
+???
 ```
 Übung B: Verwende unsere Loop, um alle Vorkommen des Bindungsmotivs in der DNA-Sequenz zu berechnen.
 ```{r}
-Anzahl<- 0
-for (i in 1:(nchar(all_DNA))){
-    sechs_buchstaben <- substr(all_DNA, i, i+5)
-    if(sechs_buchstaben == "GCTAGT"){Anzahl = Anzahl + 1}
-    #print(sechs_buchstaben="GCTAGT")
-}
-print(Anzahl)
+???
 ```
