@@ -1,0 +1,24 @@
+locations:
+  output-dir: output
+  input-dir: reads
+  reference-fasta: sample_data/NC_045512.2.fasta
+  primers-bed: sample_data/nCoV-2019_NCref.bed
+  mutations-bed: sample_data/Covid_CG_NTmutation_t07.bed
+  mutation-sheet: sample_data/mutation_sheet_211006_covidCG_NT_location.csv
+
+databases:
+  kraken2:
+    archive-url: bimsbstatic.mdc-berlin.de/akalin/AAkalin_pathogenomics/databases_small-20221006/kraken_db.tar.gz
+  krona:
+    use-prebuilt: true
+    archive-url: bimsbstatic.mdc-berlin.de/akalin/AAkalin_pathogenomics/databases_small-20221006/krona_db.tar.gz
+  vep:
+    archive-url: bimsbstatic.mdc-berlin.de/akalin/AAkalin_pathogenomics/databases_small-20221006/vep_db.tar.gz
+
+parameters:
+  reporting:
+    # This leads to enough samples being used that the mutation regression
+    # will run, meaning now most analysis code actually runs during
+    # testing. The results may be unrealistic, but we don't care about that
+    # during testing.
+    mutation-coverage-threshold: 25
