@@ -29,10 +29,10 @@ Orte von daten werden als sogannter "Path" bezeichnet.
 echo "$USER"
 
 # Path zu den Daten
-echo "home/${USER}/git-repos"
+echo "home/${USER}/git-repos" 
 
 # speichert den Path in einer Variable
-DataSource=$(echo "home/${USER}/git-repos")
+DataSource=$(echo "/home/bimsb-tr/git-repos")
 
 ```
 
@@ -76,7 +76,7 @@ wget https://poppi62.files.wordpress.com/2019/09/fig02-screens-3.jpg --output fl
 ls 
 
 # öffnet das Bild über das Terminal 
-xdg-open fly_pic.jpg
+xdg-open fig02-screens-r.jpg
 ```
 
 Perfekt! Jetzt kennt ihr ganz basic Kommandos, um einige normale Aktionen in eurem Computer direkt auszuführen, ohne dass
